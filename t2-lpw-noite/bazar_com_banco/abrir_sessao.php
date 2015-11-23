@@ -13,3 +13,6 @@
 		$msgErro = "Login incorreto!";
 		require_once("inicio.php");
 	}
+
+        
+        
