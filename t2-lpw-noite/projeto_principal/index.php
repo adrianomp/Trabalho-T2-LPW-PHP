@@ -200,6 +200,9 @@ else
                 </div>
             </div>
 
+            
+            
+            
             <div class="col-md-3 col-sm-6 hero-feature">
                 <div class="thumbnail">
                     <img src="images\bambu1.png" alt="">
