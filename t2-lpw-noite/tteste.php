@@ -18,3 +18,4 @@ $hora_split = explode(':',$hora);
 $hora_relogio = $hora_split[0];
 echo $hora_relogio;
 
+echo 'Tente12131243124214213421412412';
