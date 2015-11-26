@@ -34,14 +34,6 @@
 	</div>
 
 	<?php require_once("rodape.inc"); ?>
-    
-    
-    
-    
-    
-    
-    
-    
 
 </body>
 </html>
