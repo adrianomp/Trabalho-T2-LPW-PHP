@@ -16,7 +16,7 @@ if (isset($_POST['enviar'])) {
     $senha = md5($_POST['senha']);
     $uid = uniqid(rand(), true);
     date_default_timezone_set('America/Sao_Paulo');
-    $data_ts = date('Y-m-d H:i:s');
+    $data_ts = date('Y-m-d H:i');
     $ativo = 0;
 
 

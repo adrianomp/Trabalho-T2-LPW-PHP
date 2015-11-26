@@ -1,6 +1,6 @@
 <?php
 
-function Split($dados, $separador) {
+function splitaString($dados, $separador) {
     $partes = explode($separador, $dados);
     return $partes;
 }
@@ -39,12 +39,13 @@ if ($uidMd5 !== md5($data[0]['uid'])) {
 if ($dataMd5 !== md5($data[0]['data_ts'])) {
     $valido = false;
 } else {
+    
     date_default_timezone_set('America/Sao_Paulo');
-    $dataHoraAtualServidor = date('Y-m-d H:i:s');
+    $dataHoraAtualServidor = date('Y-m-d H:i');
     $dataHoraCadastradaNoBanco = $data[0]['data_ts'];
 
-    $dataHoraAtualServidorSplitada = Split($dataHoraAtualServidor, " ");
-    $dataHoraCadastradaNoBancoSplitada = Split($dataHoraCadastradaNoBanco, " ");
+    $dataHoraAtualServidorSplitada = splitaString($dataHoraAtualServidor, " ");
+    $dataHoraCadastradaNoBancoSplitada = splitaString($dataHoraCadastradaNoBanco, " ");
 
     $dataAtualServidor = $dataHoraAtualServidorSplitada[0];
     $dataCadastradaNoBanco = $dataHoraCadastradaNoBancoSplitada[0];
@@ -55,13 +56,19 @@ if ($dataMd5 !== md5($data[0]['data_ts'])) {
         $horarioAtualCompletoServidor = $dataHoraAtualServidorSplitada[1];
         $horarioCompletoCadastradoNoBanco = $dataHoraCadastradaNoBancoSplitada[1];
 
-        $horarioAtualCompletoServidorSplitada = Split($horarioAtualCompletoServidor, ':');
-        $horarioCompletoCadastradoNoBancoSplitada = Split($horarioCompletoCadastradoNoBanco, ':');
+        $horarioAtualCompletoServidorSplitada = splitaString($horarioAtualCompletoServidor, ':');
+        $horarioCompletoCadastradoNoBancoSplitada = splitaString($horarioCompletoCadastradoNoBanco, ':');
 
         $horaAtualServidor = $horarioAtualCompletoServidorSplitada[0];
         $horaCadastradaNoBanco = $horarioCompletoCadastradoNoBancoSplitada[0];
+        
+        $minutosAtualServidor = $horarioAtualCompletoServidorSplitada[1];
+        $minutosCadastradaNoBanco = $horarioCompletoCadastradoNoBancoSplitada[1];
+           
+        $diferencaDeHorario = ($horaAtualServidor*60 + $minutosAtualServidor) - ($horaCadastradaNoBanco*60 + $minutosCadastradaNoBanco);
 
-        if ($horaAtualServidor > $horaCadastradaNoBanco + 1) {
+
+        if ($diferencaDeHorario >60) {
             echo "Token expirado, o token gerado tem validade de uma hora";
         } else {
 
@@ -77,4 +84,4 @@ if ($dataMd5 !== md5($data[0]['data_ts'])) {
     }
 }
 ?>
-	
+		
