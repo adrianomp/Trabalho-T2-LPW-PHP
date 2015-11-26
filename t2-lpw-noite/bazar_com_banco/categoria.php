@@ -6,7 +6,7 @@
 	}
 
 
-	$pdo = new PDO('mysql:host=localhost;dbname=bazar;charset=utf8mb4', 'root', 'vertrigo');
+	$pdo = new PDO('mysql:host=localhost;dbname=bazar;charset=utf8mb4', 'root', '');
 
 	$statement = $pdo->query("SELECT id_categoria,descricao FROM categoria");
 
