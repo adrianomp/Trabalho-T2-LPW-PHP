@@ -1,13 +1,9 @@
 <?php
-
-// Vou assumir que o arquivo conectar.php existe, e que ele e o responsavel
-// por se conectar a seu database
+//Conexão com o banco
 include_once('conectar.php');
 
-// Vou assumir que os campos foram preenchidos todos corretamente
-// e que ninguem vai tentar se aproveitar do formulario para SQL Injection
-// ou coisas do genero
 
+// Recebe os dados do post, recebe a senha com hash, cria um user id randomico(Token para validar o email),gera a data atual para fazer com que o token expire e define a conta como inativa
 if (isset($_POST['enviar'])) {
 
     $nome = $_POST['nome'];

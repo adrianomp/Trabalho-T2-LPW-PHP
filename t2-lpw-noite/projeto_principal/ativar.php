@@ -1,13 +1,12 @@
 <?php
 
+//Função para splitar dois dados, usei para separar as informações da data/hora
 function splitaString($dados, $separador) {
     $partes = explode($separador, $dados);
     return $partes;
 }
 
-// Novamente, nao irei fazer nenhum tipo de checagem para validar os dados
-// em busca de SQL Injection ou coisas do genero. Nao se esqueca voce de fazer
-// isso.
+
 // Conectar no banco de dados
 include_once('conectar.php');
 
@@ -67,11 +66,11 @@ if ($dataMd5 !== md5($data[0]['data_ts'])) {
            
         $diferencaDeHorario = ($horaAtualServidor*60 + $minutosAtualServidor) - ($horaCadastradaNoBanco*60 + $minutosCadastradaNoBanco);
 
-
+// Se a diferença entre o horário que o token for gerado e o horário que o usuário tentou validar o email, for superior a 60 minutos, o token irá expirar
         if ($diferencaDeHorario >60) {
             echo "Token expirado, o token gerado tem validade de uma hora";
         } else {
-
+//Ativa o usuário, caso o mesmo valide o email em menos de 60 minutos
             if ($valido === true) {
                 $sql = "update cadastro set ativo='1' where id_cadastro='$id'";
                 $query = $pdo->prepare($sql);
