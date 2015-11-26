@@ -163,7 +163,7 @@ else
 
             <div class="col-md-3 col-sm-6 hero-feature">
                 <div class="thumbnail">
-                    <img src="projeto_principal\images\coposdec1.jpg" alt="">
+                    <img src="\images\coposdec1.jpg" alt="">
                     <div class="caption">
                         <h3>Copos Decorados</h3>
                         <p>Copos de 90ml biodegradáveis utilizados para bebidas quentes.</p>
