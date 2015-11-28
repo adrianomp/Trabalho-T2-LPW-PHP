@@ -41,7 +41,7 @@ $resultado = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width" />
-        <title>Pagina&ccedil;&atilde;o com PHP</title>
+        <title>Catalogo</title>
         <link rel="stylesheet" type="text/css" href="css/estilo.css" />
         <link rel="stylesheet" type="text/css" href="css/reset.css" />
     </head>
@@ -52,7 +52,7 @@ $resultado = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <col class="coluna2"/>
                 <col class="coluna3"/>
             </colgroup>
-            <caption>Pagina&ccedil;&atilde;o com PHP</caption>			
+            <caption>Catalogo</caption>			
             <thead>
                 <tr>
                     <th>Nome</th>

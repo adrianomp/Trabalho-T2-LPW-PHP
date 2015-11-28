@@ -29,6 +29,11 @@ else
 
             <?php if ($logado) { ?>
                 <span><?= $saudacao . ',' . $_SESSION["usuario"] ?></span>
+
+                <form method="post" action="minhas_ofertas.php">
+                    <button type="submit" name="ver_minhas_ofertas">Minhas Ofertas</button>
+                </form>
+
                 <form method="post" action="index.php">
                     <button type="submit" name="destroisessao">Logout</button>
                 </form>
@@ -55,6 +60,11 @@ else
                 if (isset($msgErroSenha)) {
                     ?>
                     <p style="color: red;"><?= $msgErroSenha ?></p>
+                <?php } ?>
+                <?php
+                if (isset($msgErroUsuario)) {
+                    ?>
+                    <p style="color: red;"><?= $msgErroUsuario ?></p>
                 <?php } ?>
 
                 <p>Cadastro</p>
