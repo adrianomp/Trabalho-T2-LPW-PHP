@@ -60,10 +60,10 @@ if (isset($_POST['enviar'])) {
             }
         } else {
             $msgErro = "Login/senha incorreto!";
-            require_once("index.php");
+            require_once("logar_usuario.php");
         }
     } else {
         $msgErro = "Login/senha incorreto!";
-        require_once("index.php");
+        require_once("logar_usuario.php");
     }
 }

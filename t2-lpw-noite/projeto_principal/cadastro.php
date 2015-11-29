@@ -37,8 +37,6 @@ function validaUsuarioDuplicado($login,$pdo) {
    
 }
 
-
-
 // Recebe os dados do post, recebe a senha com hash, cria um user id randomico(Token para validar o email),gera a data atual para fazer com que o token expire e define a conta como inativa
 if (isset($_POST['enviar'])) {
 
@@ -94,15 +92,15 @@ ativo ) ";
                 }
             } else {
                 $msgErroSenha = "A senha tenha ao menos 6 caracteres, combinado o uso de letras com números, e entre as letras caixa baixa e alta!";
-                require_once("index.php");
+                require_once("cadastrar_usuario.php");
             }
         } else {
             $msgErroEmail = "Email no formato invalido!";
-            require_once("index.php");
+            require_once("cadastrar_usuario.php");
         }
     } else {
         $msgErroUsuario = "Usuário já existe!";
-        require_once("index.php");
+        require_once("cadastrar_usuario.php");
     }
 }
 ?>
