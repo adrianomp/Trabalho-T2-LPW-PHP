@@ -6,11 +6,7 @@ if (isset($_POST['destroisessao'])) {
 }
 
 $logado = isset($_SESSION["usuario"]);
-   $senhacadastrar="patasdeGalinha1";
-
-   $senha = md5($senhacadastrar);
-   echo $senha;
-
+  
 $d = date("H");
 if ($d < 12)
     $saudacao = "Bom dia";
