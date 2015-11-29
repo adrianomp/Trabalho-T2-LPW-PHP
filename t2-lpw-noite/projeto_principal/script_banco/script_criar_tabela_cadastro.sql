@@ -10,4 +10,6 @@ senha varchar(32),
 data_ts varchar(20),
 uid varchar(50),
 ativo bool default 0
+
+
 );
