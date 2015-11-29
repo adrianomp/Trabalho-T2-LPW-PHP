@@ -1,10 +1,10 @@
 use bazar;
 
 CREATE TABLE IF NOT EXISTS `catalogo_itens` (
-  `ofertante` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `nome` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `descricao` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `preco` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `ofertante` varchar(60) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `nome` varchar(60) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `descricao` varchar(60) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `preco` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`nome`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 

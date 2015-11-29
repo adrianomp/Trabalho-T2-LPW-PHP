@@ -37,7 +37,7 @@ if (isset($_SESSION["usuario"])) {
             require_once("menu_superior.php");
             ?>
             <p>Cadastrar nova oferta</p>
-            <form method="post" action="minhas_ofertas.php">
+            <form method="post" action="cadastrar_oferta.php">
                 Nome:      <input type="text" name="nome" /><br/>
                 Descricao: <input type="text" name="descricao" /><br/>
                 Preco:     <input type="text" name="preco" /><br/> 
