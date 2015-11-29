@@ -51,6 +51,7 @@ $resultado = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <col class="coluna1"/>
                 <col class="coluna2"/>
                 <col class="coluna3"/>
+                <col class="coluna4"/>
             </colgroup>
             <caption>Catalogo</caption>			
             <thead>
@@ -58,6 +59,7 @@ $resultado = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     <th>Nome</th>
                     <th>Descricao</th>
                     <th>Preco</th>
+                    <th>Trocar</th>
                 </tr>
             </thead>
             <tbody>
@@ -70,9 +72,13 @@ $resultado = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         if ($logado) {
                             echo "	<td>" . $res['descricao'] . "</td>";
                             echo "	<td>" . $res['preco'] . "</td>";
+                            echo '      <td> <button type="submit" name="destroisessao">Trocar</button>                 </td>'; 
+                            
+                    
                         } else {
                             echo "	<td>Para ver a descrição, faça login</td>";
                             echo "	<td>Para ver o preço, faça login</td>";
+                             echo "	<td>Para efetuar trocas, faça login</td>";
                         }
                         echo "</tr>";
                     }
