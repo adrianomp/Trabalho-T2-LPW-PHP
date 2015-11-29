@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 //Post para fazer logout
 if (isset($_POST['destroisessao'])) {
     session_destroy();
