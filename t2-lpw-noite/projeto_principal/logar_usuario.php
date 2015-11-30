@@ -17,7 +17,7 @@ $logado = isset($_SESSION["usuario"]);
         <?php
         require_once("menu_superior.php");
         ?>
-         <div class="container" style="margin-top:30px">
+        <div class="container" style="margin-top:30px">
             <div class="col-md-4 col-md-offset-4">
                 <div class="panel panel-default">
                     <div class="panel-heading"><h3 class="panel-title"><strong>Login </strong></h3>
@@ -60,4 +60,7 @@ $logado = isset($_SESSION["usuario"]);
             </div>
         </div>
     </body>
+    <?php
+    include_once('footer.php');
+    ?>	
 </html>

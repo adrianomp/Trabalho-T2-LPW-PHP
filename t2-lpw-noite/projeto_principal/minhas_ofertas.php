@@ -58,7 +58,9 @@ if (isset($_SESSION["usuario"])) {
                     ?>
                 </tbody>   
             </table>
-
+            <?php
+            include_once('footer.php');
+            ?>	
         </body>
     </html> 
 

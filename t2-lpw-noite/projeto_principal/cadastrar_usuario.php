@@ -79,5 +79,8 @@ $logado = isset($_SESSION["usuario"]);
                 </div>
             </fieldset>
         </form>
+        <?php
+        include_once('footer.php');
+        ?>
     </body>
 </html>

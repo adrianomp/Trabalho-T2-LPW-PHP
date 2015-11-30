@@ -69,9 +69,12 @@ if (isset($_SESSION["usuario"])) {
                     </div>
                 </div>
 
+
             </fieldset>
-        </form>
-        
+        </form>	
+        <?php
+        include_once('footer.php');
+        ?>
     </body>
 </html>
 
