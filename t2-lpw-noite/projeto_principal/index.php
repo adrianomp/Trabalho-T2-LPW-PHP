@@ -35,7 +35,7 @@ else
         <?php
         require_once("menu_superior.php");
         ?>
-        
+
         <div class="container">
             <header class = "jumbotron hero-spacer">               
                 <h1>Eco Escambo</h1>
@@ -50,14 +50,10 @@ else
             include_once('catalogo.php');
             ?>	
             <hr>
+            <?php
+            include_once('footer.php');
+            ?>	
 
-            <footer>
-                <div class="row">
-                    <div class="col-lg-12">
-                        <p>Criado por Adriano Martins  &  Victor Silva  -  2015</p>
-                    </div>
-                </div>
-            </footer>
         </div>
         <script src="js/jquery.js"></script>
         <script src="js/bootstrap.min.js"></script>
