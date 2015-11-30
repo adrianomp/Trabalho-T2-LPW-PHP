@@ -6,7 +6,6 @@ function splitaString($dados, $separador) {
     return $partes;
 }
 
-
 // Conectar no banco de dados
 include_once('conectar.php');
 
@@ -38,7 +37,7 @@ if ($uidMd5 !== md5($data[0]['uid'])) {
 if ($dataMd5 !== md5($data[0]['data_ts'])) {
     $valido = false;
 } else {
-    
+
     date_default_timezone_set('America/Sao_Paulo');
     $dataHoraAtualServidor = date('Y-m-d H:i');
     $dataHoraCadastradaNoBanco = $data[0]['data_ts'];
@@ -60,14 +59,14 @@ if ($dataMd5 !== md5($data[0]['data_ts'])) {
 
         $horaAtualServidor = $horarioAtualCompletoServidorSplitada[0];
         $horaCadastradaNoBanco = $horarioCompletoCadastradoNoBancoSplitada[0];
-        
+
         $minutosAtualServidor = $horarioAtualCompletoServidorSplitada[1];
         $minutosCadastradaNoBanco = $horarioCompletoCadastradoNoBancoSplitada[1];
-           
-        $diferencaDeHorario = ($horaAtualServidor*60 + $minutosAtualServidor) - ($horaCadastradaNoBanco*60 + $minutosCadastradaNoBanco);
+
+        $diferencaDeHorario = ($horaAtualServidor * 60 + $minutosAtualServidor) - ($horaCadastradaNoBanco * 60 + $minutosCadastradaNoBanco);
 
 // Se a diferença entre o horário que o token for gerado e o horário que o usuário tentou validar o email, for superior a 60 minutos, o token irá expirar
-        if ($diferencaDeHorario >60) {
+        if ($diferencaDeHorario > 60) {
             echo "Token expirado, o token gerado tem validade de uma hora";
         } else {
 //Ativa o usuário, caso o mesmo valide o email em menos de 60 minutos
@@ -75,7 +74,8 @@ if ($dataMd5 !== md5($data[0]['data_ts'])) {
                 $sql = "update cadastro set ativo='1' where id_cadastro='$id'";
                 $query = $pdo->prepare($sql);
                 $query->execute();
-                echo "Cadastro ativado com sucesso!";
+                $msgErro = "Cadastro ativado com sucesso!";
+                require_once("logar_usuario.php");
             } else {
                 echo "Informacoes invalidas";
             }

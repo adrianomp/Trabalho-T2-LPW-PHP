@@ -86,9 +86,11 @@ ativo ) ";
                 $envio = mail($email, "Confirmacao de cadastro", $mensagem, $headers);
 
                 if ($envio) {
-                    echo "Mensagem enviada com sucesso";
+                    $msgErro= "Um token de confirmação foi enviado para o seu Email, favor confirmar seu cadastro.";
+                    require_once("logar_usuario.php");
                 } else {
-                    echo "A mensagem não pode ser enviada";
+                    $msgErro= "Não foi possivel gerar o Email de confirmação, tente logar para receber um novo email.";
+                    require_once("logar_usuario.php");
                 }
             } else {
                 $msgErroSenha = "A senha tenha ao menos 6 caracteres, combinado o uso de letras com números, e entre as letras caixa baixa e alta!";
