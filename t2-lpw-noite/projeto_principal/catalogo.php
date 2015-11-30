@@ -17,9 +17,6 @@ $stmt = $pdo->prepare($sql);
 $stmt->execute();
 $strCount = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-
-
-
 //iniciamos uma var que será usada para armazenar a qtde de registros da tabela  
 $total = 0;
 if (count($strCount)) {
@@ -29,14 +26,12 @@ if (count($strCount)) {
     }
 }
 //guardo o resultado na variavel pra exibir os dados na pagina		
-
 $sql = "SELECT * FROM catalogo_itens ORDER BY descricao LIMIT $inicio,$maximo";
 $stmt = $pdo->prepare($sql);
 $stmt->execute();
 $resultado = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
-<!DOCTYPE HTML>
 <html lang="pt-BR">
     <head>
         <meta charset="UTF-8">
@@ -72,13 +67,11 @@ $resultado = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         if ($logado) {
                             echo "	<td>" . $res['descricao'] . "</td>";
                             echo "	<td>" . $res['preco'] . "</td>";
-                            echo '      <td> <button type="submit" name="destroisessao">Trocar</button>                 </td>'; 
-                            
-                    
+                            echo '      <td> <button type="submit" name="destroisessao">Trocar</button>                 </td>';
                         } else {
                             echo "	<td>Para ver a descrição, faça login</td>";
                             echo "	<td>Para ver o preço, faça login</td>";
-                             echo "	<td>Para efetuar trocas, faça login</td>";
+                            echo "	<td>Para efetuar trocas, faça login</td>";
                         }
                         echo "</tr>";
                     }
@@ -89,14 +82,14 @@ $resultado = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <!-- depois de preencher a tabela com os valores, criamos os botoes de paginação -->		
         <div id="alignpaginacao">
             <?php
-            //determina de quantos em quantos links serão adicionados e removidos
+//determina de quantos em quantos links serão adicionados e removidos
             $max_links = 6;
-            //dados para os botões
+//dados para os botões
             $previous = $pagina - 1;
             $next = $pagina + 1;
-            //usa uma funcção "ceil" para arrendondar o numero pra cima, ex 1,01 será 2
+//usa uma funcção "ceil" para arrendondar o numero pra cima, ex 1,01 será 2
             $pgs = ceil($total / $maximo);
-            //se a tabela não for vazia, adiciona os botões
+//se a tabela não for vazia, adiciona os botões
             if ($pgs > 1) {
                 echo "<br/>";
                 //botao anterior

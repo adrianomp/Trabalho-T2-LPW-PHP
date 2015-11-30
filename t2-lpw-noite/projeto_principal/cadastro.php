@@ -24,17 +24,15 @@ function validaSenha($senha) {
     return true;
 }
 
-
-function validaUsuarioDuplicado($login,$pdo) {
+function validaUsuarioDuplicado($login, $pdo) {
     $sql = "select * from cadastro where login = '$login'";
     $query = $pdo->prepare($sql);
     $query->execute();
     $data = $query->fetchAll();
-    if($data){
+    if ($data) {
         return false;
     }
     return true;
-   
 }
 
 // Recebe os dados do post, recebe a senha com hash, cria um user id randomico(Token para validar o email),gera a data atual para fazer com que o token expire e define a conta como inativa
@@ -50,7 +48,7 @@ if (isset($_POST['enviar'])) {
     $ativo = 0;
 
     //valida usuario duplicado
-    if (validaUsuarioDuplicado($login,$pdo) == true) {
+    if (validaUsuarioDuplicado($login, $pdo) == true) {
         //valida email
         if (validaEmail($email) == true) {
             //valida senha
@@ -58,24 +56,17 @@ if (isset($_POST['enviar'])) {
 
                 $senha = md5($senha);
                 $sql = "insert into cadastro ( id_cadastro, nome, email, login, senha,
-data_ts, uid,
-ativo ) ";
+                data_ts, uid,ativo ) ";
                 $sql .= "values
-('', '$nome','$email','$login','$senha','$data_ts','$uid','$ativo')";
-
-
-                $stmt = $pdo->prepare($sql);
+                ('', '$nome','$email','$login','$senha','$data_ts','$uid','$ativo')";
+                 $stmt = $pdo->prepare($sql);
                 $stmt->execute();
-
                 $id = $pdo->lastInsertId();
-
 
 // Criar as variaveis para validar o email
                 $url = sprintf('id=%s&email=%s&uid=%s&key=%s', $id, md5($email), md5($uid), md5($data_ts));
-
                 $mensagem = 'Para confirmar seu cadastro acesse o link:' . "\n";
                 $mensagem .= sprintf('http://pswfaeterj2015.16mb.com/T2/ativar.php?%s', $url);
-
 
 // O remetente deve ser um e-mail do seu domínio conforme determina a RFC 822.
 // O return-path deve ser ser o mesmo e-mail do remetente.
@@ -86,10 +77,10 @@ ativo ) ";
                 $envio = mail($email, "Confirmacao de cadastro", $mensagem, $headers);
 
                 if ($envio) {
-                    $msgErro= "Um token de confirmação foi enviado para o seu Email, favor confirmar seu cadastro.";
+                    $msgErro = "Um token de confirmação foi enviado para o seu Email, favor confirmar seu cadastro.";
                     require_once("logar_usuario.php");
                 } else {
-                    $msgErro= "Não foi possivel gerar o Email de confirmação, tente logar para receber um novo email.";
+                    $msgErro = "Não foi possivel gerar o Email de confirmação, tente logar para receber um novo email.";
                     require_once("logar_usuario.php");
                 }
             } else {

@@ -1,8 +1,6 @@
 <?php
-
 //Conecta ao banco
 include_once('conectar.php');
-
 
 if (isset($_POST['enviar'])) {
 
@@ -11,12 +9,11 @@ if (isset($_POST['enviar'])) {
     date_default_timezone_set('America/Sao_Paulo');
     $data_ts = date('Y-m-d H:i');
 
-
 // faz o select com base no usuário digitado
     $sql = "select * from cadastro where login = '$login'";
-
     $query = $pdo->prepare($sql);
     $query->execute();
+    
     // atribui o resultado do select a um array
     $data = $query->fetchAll();
 

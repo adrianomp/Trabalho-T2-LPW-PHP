@@ -18,10 +18,8 @@ $dataMd5 = $_GET['key'];
 //Buscar os dados no banco
 $sql = "select * from cadastro where id_cadastro = '$id'";
 
-
 $query = $pdo->prepare($sql);
 $query->execute();
-
 $data = $query->fetchAll();
 
 

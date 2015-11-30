@@ -35,7 +35,7 @@ if (isset($_SESSION["usuario"])) {
                     <col class="coluna2"/>
                     <col class="coluna3"/>
                 </colgroup>
-                <caption>Minhas Ofertas Cadastradas</caption>			
+                <caption>Minhas Ofertas Cadastradas</caption>   
                 <thead>
                     <tr>
                         <th>Nome</th>
@@ -49,18 +49,18 @@ if (isset($_SESSION["usuario"])) {
                     if (count($resultado)) {
                         foreach ($resultado as $res) {
                             echo "<tr>";
-                            echo "	<td>" . $res['nome'] . "</td>";
-                            echo "	<td>" . $res['descricao'] . "</td>";
-                            echo "	<td>" . $res['preco'] . "</td>";
+                            echo " <td>" . $res['nome'] . "</td>";
+                            echo " <td>" . $res['descricao'] . "</td>";
+                            echo " <td>" . $res['preco'] . "</td>";
                             echo "</tr>";
                         }
                     }
                     ?>
-                </tbody>			
+                </tbody>   
             </table>
 
         </body>
-    </html>	
+    </html> 
 
     <?php
 } else {
